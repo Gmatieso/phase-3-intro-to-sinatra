@@ -11,10 +11,15 @@ class App < Sinatra::Base
   get '/potato' do
     "<p>Boil 'em, mash 'em, stick 'em in a stew</p>"
   end
-
+  # send back some HTML dynamically by generating a string with Ruby
   get '/dice' do
     dice_roll = rand(1..6)
     "<h2>You rolled a #{dice_roll}</h2>"
+  end
+ #making our application generate a json data 
+  get '/dice' do
+    dice_roll = rand(1..6)
+    { roll: dice_roll }.to_json
   end
   
 end
